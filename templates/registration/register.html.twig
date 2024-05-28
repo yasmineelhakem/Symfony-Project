@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset("css/formStyles.css") }}"
+{% endblock %}
+
+{% block body %}
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
+    <div class="container">
+    <img src="{{ asset('images/login.webp') }}" alt="Registration Image" class="registration-image">
+    <div class="formulaire">
+
+    <h1>Register</h1>
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+
+        {{ form_row(registrationForm.email) }}
+
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+
+        <div>
+            <label for="{{ registrationForm.user_type.vars.id }}">Select Your Role:</label>
+            {% for userType in registrationForm.user_type %}
+                <div>
+                    {{ form_widget(userType) }}
+                    {{ form_label(userType) }}
+                </div>
+            {% endfor %}
+        </div>
+
+        <button type="submit" class="btn">Register</button>
+    {{ form_end(registrationForm) }}
+
+    </div>
+    </div>
+{% endblock %}
