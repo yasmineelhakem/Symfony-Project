@@ -34,7 +34,7 @@ class Job
     private ?\DateTimeImmutable $created_at = null;
 
     #[ORM\ManyToOne(inversedBy: 'jobs')]
-    private ?user $recruiter = null;
+    private ?User $recruiter = null;
 
     /**
      * @var Collection<int, Application>
@@ -124,12 +124,12 @@ class Job
         return $this;
     }
 
-    public function getRecruiter(): ?user
+    public function getRecruiter(): ?User
     {
         return $this->recruiter;
     }
 
-    public function setRecruiter(?user $recruiter): static
+    public function setRecruiter(?User $recruiter): static
     {
         $this->recruiter = $recruiter;
 

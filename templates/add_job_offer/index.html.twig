@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add Job Offer{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset("css/formStyles.css") }}"
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <img src="{{ asset('images/login.webp') }}" alt="Registration Image" class="registration-image">
+        <div class="formulaire">
+
+            <h1>Register</h1>
+
+            {{ form_errors(JobType) }}
+
+            {{ form_start(JobType) }}
+
+            {{ form_row(JobType.position) }}
+            {{ form_row(JobType.description) }}
+            {{ form_row(JobType.entreprise) }}
+            {{ form_row(JobType.location) }}
+            {{ form_row(JobType.employment_type) }}
+            <button type="submit" class="btn">Add Job Offer</button>
+
+            {{ form_end(registrationForm) }}
+
+        </div>
+    </div>
+{% endblock %}
