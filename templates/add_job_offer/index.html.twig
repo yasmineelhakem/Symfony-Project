@@ -15,18 +15,18 @@
 
             <h1>Register</h1>
 
-            {{ form_errors(JobType) }}
+            {{ form_errors(job) }}
 
-            {{ form_start(JobType) }}
+            {{ form_start(job) }}
 
-            {{ form_row(JobType.position) }}
-            {{ form_row(JobType.description) }}
-            {{ form_row(JobType.entreprise) }}
-            {{ form_row(JobType.location) }}
-            {{ form_row(JobType.employment_type) }}
+            {{ form_row(job.position) }}
+            {{ form_row(job.description) }}
+            {{ form_row(job.entreprise) }}
+            {{ form_row(job.location) }}
+            {{ form_row(job.employment_type) }}
             <button type="submit" class="btn">Add Job Offer</button>
 
-            {{ form_end(registrationForm) }}
+            {{ form_end(job) }}
 
         </div>
     </div>

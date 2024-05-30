@@ -14,15 +14,15 @@ class JobType extends AbstractType
     {
         $builder
             ->add('position')
-            ->add('description')0
+            ->add('description')
             ->add('entreprise')
             ->add('location')
 
             ->add('employment_type', ChoiceType::class, [
                 'choices'  => [
-                    'Option 1' => 'Fulltime',
-                    'Option 2' => 'PartTime',
-                    'Option 3' => 'Internship',
+                    'Fulltime' => 'Fulltime',
+                    'PartTime' => 'PartTime',
+                    'Internship' => 'Internship',
                 ],
                 'label' => 'Select an Employment type',
             ]);

@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: JobRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 class Job
 {
     #[ORM\Id]
@@ -32,6 +33,19 @@ class Job
 
     #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
+
+    #[ORM\PrePersist]
+    public function setCreatedAt(): void
+    {
+        if ($this->created_at === null) {
+            $this->created_at = new \DateTimeImmutable();
+        }
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->created_at;
+    }
 
     #[ORM\ManyToOne(inversedBy: 'jobs')]
     private ?User $recruiter = null;
@@ -112,7 +126,7 @@ class Job
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+   /* public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->created_at;
     }
@@ -123,6 +137,7 @@ class Job
 
         return $this;
     }
+    */
 
     public function getRecruiter(): ?User
     {
