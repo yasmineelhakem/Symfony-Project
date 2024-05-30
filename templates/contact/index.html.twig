@@ -1,20 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ContactController!{% endblock %}
+{% block title %}Contact Us{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block main %}
+    <div class="w3-padding-64 w3-content" id="contact">
+        <h2>Contact Us</h2>
+        <hr style="width:200px" class="w3-opacity">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+        <div class="w3-section">
+            <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Centre Urbain Nord, Tunisia</p>
+            <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +00 151515</p>
+            <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"></i> Email: weoffer@gmail.com</p>
+        </div>
+        <br>
+        <p>Let's get in touch. Send us a message:</p>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/personal we offer/symfony_project/src/Controller/ContactController.php</code></li>
-        <li>Your template at <code>C:/personal we offer/symfony_project/templates/contact/index.html.twig</code></li>
-    </ul>
-</div>
+        <form action="{{ path('app_contact') }}" method="post">
+            <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="name"></p>
+            <p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="email"></p>
+            <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required name="subject"></p>
+            <p><input class="w3-input w3-padding-16" type="text" placeholder="Message" required name="message"></p>
+            <p>
+                <button class="w3-button w3-padding-large btn btn-primary w3-theme-d4" name="submit" type="submit">
+                    <i class="fa fa-paper-plane"></i> SEND MESSAGE
+                </button>
+            </p>
+        </form>
+    </div>
 {% endblock %}
