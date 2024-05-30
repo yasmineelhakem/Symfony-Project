@@ -309,7 +309,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getProfilePic(): ?string
     {
-        return $this->profilePic;
+        return $this->profilePic ?: 'anonymous.jpg';
     }
 
     public function setProfilePic(?string $profilePic): static

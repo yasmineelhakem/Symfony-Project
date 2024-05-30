@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit your profile{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("css/formStyles.css") }}"
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block main %}
+
+    <div class="container">
+        {#  <img src="{{ asset('images/login.webp') }}" alt="Registration Image" class="registration-image"> #}
+        <div class="formulaire">
+
+            <h1>Edit Your Profile</h1>
+
+            {{ form_errors(form) }}
+
+            {{ form_start(form) }}
+
+            {{ form_row(form.name) }}
+            {{ form_row(form.last_name) }}
+
+            {{ form_row(form.email) }}
+            {{ form_row(form.skills) }}
+
+            {{ form_row(form.profilePic) }}
+
+            <button type="submit" class="btn">Save</button>
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
