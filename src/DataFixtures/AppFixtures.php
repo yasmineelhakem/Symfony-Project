@@ -35,9 +35,11 @@ class AppFixtures extends Fixture
             if ($userType == 'Recruiter') {
                 $recruiters[] = $user;
                 $user->addRole('ROLE_RECRUITER');
+                $user->setCompany($faker->company);
             } else if ($userType == 'Jobseeker') {
                 $jobSeekers[] = $user;
                 $user->addRole('ROLE_JOBSEEKER');
+                $user->setSkills($faker->text(50));
             } else {
                 $user->addRole('ROLE_ADMIN');
             }
