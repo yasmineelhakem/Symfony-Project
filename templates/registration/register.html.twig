@@ -3,11 +3,13 @@
 {% block title %}Register{% endblock %}
 
 {% block stylesheets %}
-    {{ parent() }}
     <link rel="stylesheet" href="{{ asset("css/formStyles.css") }}"
 {% endblock %}
 
-{% block body %}
+{% block header %}
+{% endblock %}
+
+{% block main %}
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
@@ -46,4 +48,7 @@
 
     </div>
     </div>
+{% endblock %}
+
+{% block footer %}
 {% endblock %}

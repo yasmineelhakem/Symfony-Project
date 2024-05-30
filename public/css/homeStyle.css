@@ -1,0 +1,36 @@
+html{
+    scroll-behavior: smooth;
+}
+.card{
+    margin:50px;
+}
+.card-title {
+    font-size:2.5rem;
+    font-weight:bold;
+}
+
+.card-text {
+    font-size:1.5rem;
+}
+
+.list-group-item{
+    font-size:1.25rem;
+    font-weight:bold;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+#myHeader{
+    display:none;
+}
+
+@media screen and (max-width: 970px) {
+    #navbar{
+        display: none;
+    }
+    #myHeader{
+        display: block;
+    }
+}
