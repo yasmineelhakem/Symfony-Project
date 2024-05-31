@@ -2,7 +2,6 @@
 
 {% block title %}My Job Offers{% endblock %}
 
-
 {% block main %}
 
     <main class="container d-flex flex-column justify-content-evenly">
@@ -20,7 +19,7 @@
                         <li class="list-group-item w3-theme-l5">{{ "🧱" ~ job.entreprise }}</li>
                         <li class="list-group-item w3-theme-l5">{{ "📍" ~ job.location }}</li>
                     </ul>
-                    <a href="" class="btn btn-primary w3-theme-d4 align-self-end mt-auto">See Applications</a>
+                    <a href="{{ path("app_applications" ,{"job": job.id}) }}" class="btn btn-primary w3-theme-d4 align-self-end mt-auto">See Applications</a>
                 </div>
             </div>
         {% endfor %}
