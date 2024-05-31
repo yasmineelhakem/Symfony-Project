@@ -1,20 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ApplyController!{% endblock %}
+{% block title %}Apply{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("css/formStyles.css") }}"
+{% endblock %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+{% block header %}
+{% endblock %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/personal we offer/symfony_project/src/Controller/ApplyController.php</code></li>
-        <li>Your template at <code>C:/personal we offer/symfony_project/templates/apply/index.html.twig</code></li>
-    </ul>
-</div>
+{% block main %}
+
+    <div class="container">
+        {#  <img src="{{ asset('images/login.webp') }}" alt="Registration Image" class="registration-image"> #}
+        <div class="formulaire">
+
+            <h1>Apply For This Job</h1>
+
+            {{ form_errors(form) }}
+
+            {{ form_start(form) }}
+
+            {{ form_row(form.motivation) }}
+            {{ form_row(form.cv) }}
+
+            <button type="submit" class="btn">Save</button>
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
 {% endblock %}
