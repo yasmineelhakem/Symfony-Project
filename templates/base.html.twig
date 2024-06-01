@@ -41,19 +41,8 @@
                     {% elseif (app.user) and (is_granted('ROLE_JOBSEEKER')) %}
                         <a href="" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Home</a>
                         <a href="{{ path('app_contact') }}" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
-                     {#
-                    {% elseif (app.session.get('user_id') is defined) and (app.session.get("user_type") == 'admin') %}
-                        <a href="{{ path('home_admin') }}" class="w3-bar-item w3-button w3-hide-small w3-hover-white ">Home</a>
-                        <a href="{{ path('job_offers') }}" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Job Offers</a>
-                        <a href="{{ path('add_job') }}" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add job offer</a>
-                        <div class="w3-dropdown-hover w3-hide-small">
-                            <button class="w3-button" title="Notifications">Users <i class="fa fa-caret-down"></i></button>
-                            <div class="w3-dropdown-content w3-card-4 w3-bar-block">
-                                <a href="{{ path('admin_recruiters') }}" class="w3-bar-item w3-button">Recruiters</a>
-                                <a href="{{ path('admin_jobseekers') }}" class="w3-bar-item w3-button">Job Seekers</a>
-                            </div>
-                        </div>
-                      #}
+                    {% elseif (is_granted('ROLE_ADMIN')) %}
+                        <a href="{{ path('admin') }}" class="w3-bar-item w3-button w3-hide-small w3-hover-white ">Admin</a>
                     {% endif %}
                 </div>
 

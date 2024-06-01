@@ -14,10 +14,10 @@ class Application
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'applications')]
-    private ?job $job = null;
+    private ?Job $job = null;
 
     #[ORM\ManyToOne(inversedBy: 'applications')]
-    private ?user $jobseeker = null;
+    private ?User $jobseeker = null;
 
     #[ORM\Column(length: 500)]
     private ?string $motivation = null;
@@ -30,24 +30,24 @@ class Application
         return $this->id;
     }
 
-    public function getJob(): ?job
+    public function getJob(): ?Job
     {
         return $this->job;
     }
 
-    public function setJob(?job $job): static
+    public function setJob(?Job $job): static
     {
         $this->job = $job;
 
         return $this;
     }
 
-    public function getJobseeker(): ?user
+    public function getJobseeker(): ?User
     {
         return $this->jobseeker;
     }
 
-    public function setJobseeker(?user $jobseeker): static
+    public function setJobseeker(?User $jobseeker): static
     {
         $this->jobseeker = $jobseeker;
 
