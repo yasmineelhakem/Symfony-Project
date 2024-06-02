@@ -14,9 +14,6 @@ class ApplicationsController extends AbstractController
     public function index(Job $job): Response
     {
         $applications = $job->getApplications();
-        /*foreach ($applications as $application) {
-            $user=$application->getJobseeker();
-        }*/
         return $this->render('applications/index.html.twig', [
             'applications' => $applications,
         ]);

@@ -12,10 +12,10 @@
 {% block main %}
 
     <div class="container">
-        <img src="{{ asset('images/login.webp') }}" alt="Registration Image" class="registration-image">
+        <img src="{{ asset('images/jobOffer.png') }}" alt="Registration Image" class="registration-image">
         <div class="formulaire">
 
-            <h1>Register</h1>
+            <h1>Add Job Offer</h1>
 
             {{ form_errors(job) }}
 
@@ -26,7 +26,7 @@
             {{ form_row(job.entreprise) }}
             {{ form_row(job.location) }}
             {{ form_row(job.employment_type) }}
-            <button type="submit" class="btn">Add Job Offer</button>
+            <button type="submit" >Add Job Offer</button>
 
             {{ form_end(job) }}
 

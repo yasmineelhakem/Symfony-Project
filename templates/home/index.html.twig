@@ -20,7 +20,7 @@
                         <li class="list-group-item w3-theme-l5">{{ "🧱" ~ job.entreprise }}</li>
                         <li class="list-group-item w3-theme-l5">{{ "📍" ~ job.location }}</li>
                     </ul>
-                    <a href="{{ path('job_details', { 'id': job.id }) }}" class="btn btn-primary w3-theme-d4 align-self-end mt-auto">See More</a>
+                    <a href="{{ path('job_details', { 'job': job.id }) }}" class="btn btn-primary w3-theme-d4 align-self-end mt-auto">See More</a>
                 </div>
             </div>
         {% endfor %}

@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Form\ApplicationType;
 use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -26,10 +27,9 @@ use App\Entity\Application;
         $this->parameters = $parameters;
     }
 
-    #[Route('/apply/{id}', name: 'app_apply')]
-    public function index(int $id,Request $request,SluggerInterface $slugger,EntityManagerInterface $entityManager): Response
+    #[Route('/apply/{job}', name: 'app_apply')]
+    public function index(Job $job,Request $request,SluggerInterface $slugger,EntityManagerInterface $entityManager): Response
     {
-        $job = $entityManager->getRepository(Job::class)->find($id);
 
         if (!$job) {
             throw $this->createNotFoundException('The job does not exist');

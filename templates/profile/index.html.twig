@@ -3,12 +3,12 @@
 {% block title %}Your Profile{% endblock %}
 
 {% block main %}
-    <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+    <div class="container w-75 p-3 d-flex justify-content-center  " >
         <div class="card p-4">
             <div class=" image d-flex flex-column justify-content-center align-items-center">
                 <button class="btn btn-secondary">
                     <img src="{{ asset('uploads/profilePictures/' ~ app.user.profilePic) }}" alt="Profile Picture" height="150" width="150" />
-                </button> <span class="name mt-3">{{ app.user.name }} {{ app.user.lastName }}</span> <span class="idd">{{ app.user.email }}</span>
+                </button> <span class="name mt-3 h2">{{ app.user.name }} {{ app.user.lastName }}</span > <span  class="h3">{{ app.user.email }}</span>
                 {#  <div class="d-flex flex-row justify-content-center align-items-center gap-2">
                     <span class="idd1">Oxc4c16a645_b21a</span>
                     <span><i class="fa fa-copy"></i></span>
@@ -22,8 +22,14 @@
                 </div>
 
                 <div class="text mt-3">
-                    <span>Eleanor Pena is a creator of minimalistic x bold graphics and digital artwork.<br><br> Artist/ Creative Director by Day #NFT minting@ with FND night. </span>
+                    {% if (is_granted('ROLE_JOBSEEKER')) %}
+                        <span class="h2">Skills:{{ app.user.skills}} </span>
+                    {% elseif (is_granted('ROLE_RECRUITER')) %}
+                        <span class="h2">Skills:{{ app.user.company}} </span>
+                    {% endif %}
+                    <div>***************************************************************************************************** </div>
                 </div>
+
                 <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center">
                     <span><i class="fa fa-twitter"></i></span>
                     <span><i class="fa fa-facebook-f"></i></span>

@@ -20,58 +20,11 @@
 
                 <p class="card-text">{{  job.description }}</p>
 
-                <!-- Button apply only displayed for job seekers or in public page -->
                 {% if (app.user==null) or is_granted("ROLE_JOBSEEKER") %}
-                    {#  <form action="{{ path("app_apply" , { 'id': job.id }) }}" method="post">
-                          <input type="hidden" name="id_job" value="{{ job.id }}">
-                        <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary w3-theme-d4 align-self-end mt-auto">Apply</button>
-                        </div>
-                    </form>#}
-                    <a href="{{ path('app_apply', { 'id': job.id }) }}" class="btn btn-primary w3-theme-d4 align-self-end mt-auto">Apply</a>
+                    <a href="{{ path('app_apply', { 'job': job.id }) }}" class="btn btn-primary w3-theme-d4 align-self-end mt-auto">Apply</a>
                 {% endif %}
 
-                {#
-                <div class="d-flex flex-direction-row justify-content-end">
-
-                    <?php
-            /*You can only see applications if you're an admin or if you are a recruiter who posted that job */
-            if(isset($_SESSION["user_type"]) &&  isset($_SESSION["user_id"]) && ($_SESSION["user_type"] == "admin" || $job["id_recruiter"]==$_SESSION["user_id"])) { ?>
-                    <form action="../jobApplications/index.php" method="post">
-                        <input type="hidden" name="id_job" value="<?php echo $job['id_job'];?>">
-                        <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-info  align-self-end mt-auto w3-theme-d4" title="See applications">
-                                See Applications
-                            </button>
-                        </div>
-                    </form>
-                    <?php  }?>
-
-                    <!-- if the user is an admin he can delete the job offer -->
-                    <?php if(isset($_SESSION["user_type"]) && $_SESSION["user_type"]=="admin") { ?>
-                    <form action="delete_jobOffer.php" method="post">
-                        <input type="hidden" name="id_job" value="<?php echo $job['id_job'];?>">
-                        <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-info  align-self-end mt-auto btn-danger"  title="Delete Job Offer">
-                                Delete Job Offer
-                            </button>
-                        </div>
-                    </form>
-
-                    <form action="../form application/index.php" method="post">
-                        <input type="hidden" name="id_job" value="<?php echo $job["id_job"] ?>">
-                        <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn  btn-warning align-self-end mt-auto">Add application</a>
-                        </div>
-                    </form>
-
-
-                    <?php } ?>
-                #}
                 </div>
-
         </div>
-
-
     </main>
 {% endblock %}

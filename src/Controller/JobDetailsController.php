@@ -10,10 +10,10 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class JobDetailsController extends AbstractController
 {
-    #[Route('/job/{id}', name: 'job_details')]
-    public function details(int $id, EntityManagerInterface $entityManager): Response
+    #[Route('/job/{job}', name: 'job_details')]
+    public function details(Job $job, EntityManagerInterface $entityManager): Response
     {
-        $job = $entityManager->getRepository(Job::class)->find($id);
+        //$job = $entityManager->getRepository(Job::class)->find($id);
 
         if (!$job) {
             throw $this->createNotFoundException('The job does not exist');
